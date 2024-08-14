@@ -5,9 +5,9 @@ El objetivo de este examen es evaluar tu capacidad para trabajar con React, mane
 
 ## Observaciones
 **Documentación de evidencias**:
-- Deberás utilizar el archivo `reports.md` localizado en la raíz del proyecto en el cual redactarás los pasos que tomaste para realizar la solución del proyecto. 
+- Deberás utilizar el archivo `reports.md` localizado en la raíz del proyecto en el cual responderas las preguntas abiertas dentro del mismo. 
 - Si instalas una dependencia o usas algún tipo de patrón, deberás redactar por qué lo utilizaste y por qué consideras que fue la mejor solución.
-- En caso de consulta externa, deberás adjuntar en el documento el enlace al mismo. Solo está permitido el uso de documentación oficial de dependencias o tecnologías usadas. El uso de algún motor de IA para generar la solución del ejercicio hará que tu examen quede automáticamente nulo y serás descartado del proceso de selección.
+- Solo está permitido el uso de documentación oficial de dependencias o tecnologías usadas. El uso de algún motor de IA para generar la solución del ejercicio afectara tu evaluacion del examen.
 
 ## Instrucciones
 
