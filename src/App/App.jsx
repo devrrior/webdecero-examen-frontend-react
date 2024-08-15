@@ -1,11 +1,10 @@
-import React from 'react';
-import './App.css';
-import Login from './Views/Login/Login';
-
+import { GlobalStyle } from "./App.styles";
+import Login from "./Views/Login/Login";
 
 function App() {
   return (
     <div className="App">
+      <GlobalStyle />
       <Login />
     </div>
   );
