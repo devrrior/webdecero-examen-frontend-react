@@ -47,3 +47,21 @@
 8. Con el `login` listo, tocaba generar la página de `Profile`. Antes de empezar a diseñarla, creamos rutas con `react-router-dom`, protegiendo algunas que requieren estar logueado.
 9. Con las rutas configuradas, se diseñó la parte de `Profile`, reutilizando componentes como `Button`.
 10. En `Profile`, se creó un hook para manejar peticiones que necesitan autenticación, utilizando la funcionalidad de `axios` llamada `interceptors`. Si la request fallaba y devolvía un `401`, se refrescaban los tokens y se volvía a hacer la petición original.
+
+## Componentes creados
+
+- `TextField`: Este componente es un campo de texto que ademas contiene un mensaje de error, el componente recibe los siguientes parametros:
+
+  - type: Tipo de input.
+  - placeholder: Valor del placeholder.
+  - name: Nombre del input.
+  - value: Valor que tendra el input.
+  - error: Error del input.
+  - width: Ancho del input.
+  - touched: Si fue tocado.
+  - onChange: Funcion al cambiar el valor del input.
+  - onBlur: Funcion al hacer focus al input.
+
+    Estos parametros nos permiten modificar la apariencia y el comportamiento del botón.
+
+- `Button`: Este es un botón, podemos modificar el contenido del texto, el color del botón (`primary` o `error`) y la función al hacer click.
