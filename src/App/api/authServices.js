@@ -1,8 +1,8 @@
-import { axiosPublicInstance } from "./configs/axios";
+import { axiosClient } from "./configs/axios";
 
-export const login = async (username, password) => {
+export const loginService = async (username, password) => {
   try {
-    const response = await axiosPublicInstance.post("/auth/login", {
+    const response = await axiosClient.post("/auth/login", {
       username,
       password,
     });
@@ -24,5 +24,42 @@ export const login = async (username, password) => {
         message: error.response.data.message,
       };
     }
+  }
+};
+
+export const refreshTokenService = async (refreshTokenValue) => {
+  try {
+    const response = await axiosClient.post("/auth/refresh", {
+      refreshToken: refreshTokenValue,
+    });
+
+    const { token, refreshToken } = response.data;
+
+    return {
+      success: true,
+      message: "Refresh token success",
+      data: {
+        accessToken: token,
+        refreshToken,
+      },
+    };
+  } catch (error) {
+    if (error.response) {
+      return {
+        success: false,
+        message: error.response.data.message,
+      };
+    }
+  }
+};
+
+export const getCurrentAuthUserService = async (axiosAuthClient) => {
+  try {
+    const response = await axiosAuthClient.get("/users/me");
+    return response.data;
+  } catch (error) {
+    throw new Error(
+      error.response?.data?.message || "Error fetching user data"
+    );
   }
 };

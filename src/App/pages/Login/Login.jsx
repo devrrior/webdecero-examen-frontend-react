@@ -3,14 +3,13 @@ import { TextField } from "../../components/TextField/TextField";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { Button } from "../../components/Button/Button";
-import { login } from "../../api/authServices";
+import { loginService } from "../../api/authServices";
 import { useAuth } from "../../hooks/useAuth";
 import { useNavigate } from "react-router-dom";
 import { routeMappings } from "../../consts/routeMappings";
-import { Navigate } from "react-router-dom";
 
 export const Login = () => {
-  const { authState, authenticate } = useAuth();
+  const { authenticate } = useAuth();
   const navigate = useNavigate();
 
   const intialLoginValues = {
@@ -31,7 +30,7 @@ export const Login = () => {
   const handleSubmit = async (values) => {
     const { username, password } = values;
 
-    const response = await login(username, password);
+    const response = await loginService(username, password);
 
     if (response.success) {
       const { accessToken, refreshToken } = response.data;
@@ -82,7 +81,7 @@ export const Login = () => {
             onBlur={formik.handleBlur}
           />
 
-          <Button text={"Ingresar"} onClick={formik.handleSubmit} />
+          <Button text={"Ingresar"} colorType={"primary"} onClick={formik.handleSubmit} />
         </FormContainer>
       </MainContainer>
     </Container>
