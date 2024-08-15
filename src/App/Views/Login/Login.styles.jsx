@@ -15,7 +15,7 @@ export const Title = styled.h1`
 
 export const MainContainer = styled.div`
   background: #f7f7f7;
-  min-width: 40%;
+  min-width: 25%;
   min-height: 40vh;
   display: flex;
   flex-direction: column;
