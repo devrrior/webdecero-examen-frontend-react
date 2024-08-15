@@ -1,8 +1,8 @@
 import { Container, FormContainer, MainContainer, Title } from "./Login.styles";
-import { TextField } from "../../Components/TextField/TextField";
+import { TextField } from "../../components/TextField/TextField";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { Button } from "../../Components/Button/Button";
+import { Button } from "../../components/Button/Button";
 
 const Login = () => {
   const intialLoginValues = {

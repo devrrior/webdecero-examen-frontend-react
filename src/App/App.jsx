@@ -1,5 +1,5 @@
 import { GlobalStyle } from "./App.styles";
-import Login from "./Views/Login/Login";
+import Login from "./pages/Login/Login";
 
 function App() {
   return (
