@@ -1,6 +1,7 @@
 import { Container, Error, Input } from "./TextField.styles";
 
 export const TextField = ({
+  type,
   placeholder,
   name,
   value,
@@ -13,7 +14,7 @@ export const TextField = ({
   return (
     <Container width={width}>
       <Input
-        type="text"
+        type={type}
         name={name}
         placeholder={placeholder}
         value={value}
