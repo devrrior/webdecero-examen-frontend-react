@@ -7,13 +7,13 @@ export const login = async (username, password) => {
       password,
     });
 
-    const { accessToken, refreshToken } = response.data;
+    const { token, refreshToken } = response.data;
 
     return {
       success: true,
       message: "Login success",
       data: {
-        accessToken,
+        accessToken: token,
         refreshToken,
       },
     };

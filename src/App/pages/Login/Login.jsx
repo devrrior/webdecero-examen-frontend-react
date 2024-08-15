@@ -4,8 +4,15 @@ import * as yup from "yup";
 import { useFormik } from "formik";
 import { Button } from "../../components/Button/Button";
 import { login } from "../../api/authServices";
+import { useAuth } from "../../hooks/useAuth";
+import { useNavigate } from "react-router-dom";
+import { routeMappings } from "../../consts/routeMappings";
+import { Navigate } from "react-router-dom";
 
-const Login = () => {
+export const Login = () => {
+  const { authState, authenticate } = useAuth();
+  const navigate = useNavigate();
+
   const intialLoginValues = {
     username: "",
     password: "",
@@ -27,13 +34,17 @@ const Login = () => {
     const response = await login(username, password);
 
     if (response.success) {
+      const { accessToken, refreshToken } = response.data;
+
+      authenticate(accessToken, refreshToken);
+
       alert(response.message);
-      console.log("Login success");
+
+      navigate(routeMappings.profile);
     }
 
     if (!response.success) {
       alert(response.message);
-      console.log("Login failed");
     }
   };
 
@@ -77,5 +88,3 @@ const Login = () => {
     </Container>
   );
 };
-
-export default Login;
