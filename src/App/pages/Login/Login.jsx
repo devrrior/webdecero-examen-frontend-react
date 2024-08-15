@@ -3,6 +3,7 @@ import { TextField } from "../../components/TextField/TextField";
 import * as yup from "yup";
 import { useFormik } from "formik";
 import { Button } from "../../components/Button/Button";
+import { login } from "../../api/authServices";
 
 const Login = () => {
   const intialLoginValues = {
@@ -20,8 +21,20 @@ const Login = () => {
       .required("La contraseña es requerida."),
   });
 
-  const handleSubmit = (values) => {
-    console.log(values);
+  const handleSubmit = async (values) => {
+    const { username, password } = values;
+
+    const response = await login(username, password);
+
+    if (response.success) {
+      alert(response.message);
+      console.log("Login success");
+    }
+
+    if (!response.success) {
+      alert(response.message);
+      console.log("Login failed");
+    }
   };
 
   const formik = useFormik({
@@ -36,6 +49,7 @@ const Login = () => {
         <Title>Iniciar sesión</Title>
         <FormContainer>
           <TextField
+            type={"text"}
             placeholder={"Usuario"}
             name={"username"}
             value={formik.values.username}
@@ -46,6 +60,7 @@ const Login = () => {
             onBlur={formik.handleBlur}
           />
           <TextField
+            type={"password"}
             placeholder={"Contraseña"}
             name={"password"}
             value={formik.values.password}
@@ -56,10 +71,7 @@ const Login = () => {
             onBlur={formik.handleBlur}
           />
 
-          <Button
-            text={"Ingresar"}
-            onClick={formik.handleSubmit}
-          />
+          <Button text={"Ingresar"} onClick={formik.handleSubmit} />
         </FormContainer>
       </MainContainer>
     </Container>
